@@ -12,15 +12,10 @@ package se.kth.carInspection.dbHandler;
 public class InspectionCostDTO {
     private int cost;
     private RegNoDTO regNo; 
-    
     public InspectionCostDTO(int cost,RegNoDTO regNo)
     {
         this.cost = cost;
         this.regNo = regNo;
-    }
-
-    public InspectionCostDTO() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     public int getcost()
     {
@@ -35,7 +30,7 @@ public class InspectionCostDTO {
     //Judge if it is the input vehicle’s license number.
     boolean matches(RegNoDTO regNo)
     {   
-        if (this.regNo == regNo)
+        if (this.regNo.getRegNo().equals(regNo.getRegNo()))
             {return true;}
         else 
             {return false;}

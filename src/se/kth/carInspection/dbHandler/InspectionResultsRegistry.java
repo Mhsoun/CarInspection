@@ -20,9 +20,9 @@ public class InspectionResultsRegistry {
     
     
     //Program stores inspection results.
-    public void setInspectionsResults(ArrayList<InspectionsDTO> InspectionResults)     
+    public void setInspectionsResults(InspectionResultsRegistry InspectionResults)     
     { 
-        this.InspectionResults = InspectionResults;
+        this.InspectionResults = InspectionResults.getInspections();
       
     }
     

@@ -18,9 +18,9 @@ public class Printer {
     public void printReceipt(Receipt receipt) 
     {  }
     
-    public void printResult(ArrayList<InspectionsDTO> InspectionResults)
+    public void printResult(InspectionResultsRegistry InspectionResults)
     {
-        for (InspectionsDTO inspection : InspectionResults) 
+        for (InspectionsDTO inspection : InspectionResults.getInspections()) 
         {
                System.out.println(inspection.getInspectionName() +": "+ inspection.getInspectionResult());
         }

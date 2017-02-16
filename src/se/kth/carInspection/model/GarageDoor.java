@@ -2,7 +2,7 @@ package se.kth.carInspection.model;
 
 /**
  *
- * @author Ali Kamran
+ * @author Ali Kamransdgsdh
  */
 public class GarageDoor {
     private boolean doorState;

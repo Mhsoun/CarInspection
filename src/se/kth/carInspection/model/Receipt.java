@@ -5,10 +5,19 @@
  */
 package se.kth.carInspection.model;
 
+import se.kth.carInspection.dbHandler.InspectionCostDTO;
+
 /**
  *
  * @author tmpuser-10209
  */
 public class Receipt {
+    private InspectionCostDTO inspectionCost;
+    public Receipt () {
+        inspectionCost = new InspectionCostDTO();
+                
+    }
+    //public void printC
+    
     
 }

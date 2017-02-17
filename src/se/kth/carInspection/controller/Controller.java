@@ -13,6 +13,7 @@ import se.kth.carInspection.dbHandler.Printer;
 import se.kth.carInspection.dbHandler.InspectionCostRegistry;
 import se.kth.carInspection.dbHandler.InspectionsDTO;
 import se.kth.carInspection.dbHandler.InspectionResultsRegistry;
+import se.kth.carInspection.model.GarageDoor;
 /**
  *
  * @author tmpuser-10209
@@ -20,6 +21,9 @@ import se.kth.carInspection.dbHandler.InspectionResultsRegistry;
 public class Controller {
     private RegistryCreator creator;
     private Printer printer;
+    private GarageDoor doorOpenClose;
+    private InspectionsDTO inspection;
+    private QueueNumberDisplay queueNumber;
     
     public Controller(RegistryCreator creator, Printer printer) {
         this.creator = creator;
@@ -27,9 +31,16 @@ public class Controller {
     }
     
     public void startInspection(){
+        doorOpenClose.open();
     
     }
     public void closeDoor(){
+        doorOpenClose.close();
+        
+    }
+     public void openDoor(){
+        doorOpenClose.open();
+        
     }
     
     public  InspectionCostDTO enterRegNo(RegNoDTO regNo){

@@ -1,22 +1,28 @@
 package se.kth.carInspection.model;
 
 
-class QueueNumberDisplay {
+public class QueueNumberDisplay {
     
     private int number;
+    private GarageDoor openTheGarageDoor;
     
-    public int showNextNo(int number){
-    
-	this.number=number;
+    public QueueNumberDisplay (){
+        number = 0;
+        openTheGarageDoor = new GarageDoor();    
+    }
+    public int showNextNo(){
+        
+        System.out.println("Queue Number = : "+number);
         return number;
 }
     
  
 public void increment(){
 
-       System.out.println("Queue Number = : "+ ++this.number);
-       GarageDoor garageDoor=new GarageDoor();
-       garageDoor.open();
-	
+       ++number;
+       openTheGarageDoor.open();
 	}   
+public void restNumbers(){
+    number = 0;
+}
 }

@@ -6,18 +6,27 @@
 package se.kth.carInspection.model;
 
 import se.kth.carInspection.dbHandler.InspectionCostDTO;
+import se.kth.carInspection.dbHandler.RegNoDTO;
 
 /**
  *
  * @author tmpuser-10209
  */
 public class Receipt {
+    private RegNoDTO regNumber;
     private InspectionCostDTO inspectionCost;
     public Receipt () {
+        
         inspectionCost = new InspectionCostDTO();
+        regNumber = new RegNoDTO();
                 
     }
-    //public void printC
+    public void printReceipt () {
+        System.out.println("the car registration number is" + regNumber.getRegNo());
+        System.out.println("the inspection cost is:" + inspectionCost.getcost());
+            
+        
+    }
     
     
 }

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package se.kth.carInspection.dbHandler;
-import java.util.ArrayList;
 import se.kth.carInspection.model.Receipt;
 /**
  *
@@ -12,11 +11,14 @@ import se.kth.carInspection.model.Receipt;
  */
 public class Printer {
     
+    
     public Printer()
     {}
     
     public void printReceipt(Receipt receipt) 
-    {  }
+    { 
+    receipt.printReceipt();
+    }
     
     public void printResult(InspectionResultsRegistry InspectionResults)
     {

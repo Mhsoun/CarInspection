@@ -42,15 +42,15 @@ public class Inspector {
     
     
     //Program tells cost for inspection.if there is no such regNo,the program will exit.  
-    InspectionCostDTO inspectionCost= control.enterRegNo(regNo);
-    if (inspectionCost == null)
+    int inspectionCost= control.enterRegNo(regNo);
+    if (inspectionCost == 0)
     {
         System.out.println("There is no such license number!");
         System.exit(0);
     }    
     else
     {
-        System.out.println("The cost is: " +inspectionCost.getcost());
+        System.out.println("The cost is: " +inspectionCost);
     }
     
     

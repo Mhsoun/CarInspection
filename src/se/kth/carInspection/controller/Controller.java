@@ -43,7 +43,7 @@ public class Controller {
         
     }
     
-    public  InspectionCostDTO enterRegNo(RegNoDTO regNo){
+    public  int enterRegNo(RegNoDTO regNo){
         
         return creator.getInspectionCostRegistry().getCost(regNo);
                  

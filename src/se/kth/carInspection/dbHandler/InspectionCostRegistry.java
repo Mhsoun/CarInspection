@@ -18,14 +18,14 @@ public class InspectionCostRegistry {
     { addCosts();   }
     
     
-    public InspectionCostDTO getCost(RegNoDTO regNo)     
+    public int getCost(RegNoDTO regNo)     
     {
         for (InspectionCostDTO cost : costs) {
             if (cost.matches(regNo)) {
-                return cost;
+                return cost.getcost();
             }
         }
-      return null;
+      return 0;
     }
     
     private void addCosts() {

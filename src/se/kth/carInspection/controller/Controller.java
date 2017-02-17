@@ -32,7 +32,7 @@ public class Controller {
     public void closeDoor(){
     }
     
-    public  InspectionCostDTO enterRegNo(RegNoDTO regNo){
+    public  int enterRegNo(RegNoDTO regNo){
         
         return creator.getInspectionCostRegistry().getCost(regNo);
                  

@@ -17,8 +17,6 @@ public class RegNoDTO {
         this.regNo = regNo;
     }
 
-
-    
     public String getRegNo()
     {
         return this.regNo;

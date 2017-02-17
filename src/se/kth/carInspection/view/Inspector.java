@@ -21,6 +21,32 @@ public class Inspector {
     public Inspector(Controller control) {
         this.control = control;
     }
+    
+    
+    public RegNoDTO input()
+    { 
+        System.out.println("please input the license number: ");
+        Scanner license = new Scanner(System.in);
+        String licenseNbr = license.nextLine();
+        RegNoDTO regNo = new RegNoDTO(licenseNbr);   
+        //RegNoDTO regNo = new RegNoDTO("ABC299");
+        return regNo;
+     }
+    
+    public void judgeInput(RegNoDTO regNo)
+    {   
+        int inspectionCost= control.enterRegNo(regNo);
+        while(inspectionCost == 0)
+        {
+            System.out.println("There is no such license number!");
+            RegNoDTO regNo1 = input();
+            inspectionCost= control.enterRegNo(regNo1);
+        }    
+        
+        System.out.println("The cost is: " +inspectionCost);
+    
+    }
+    
  /**
 * Simulates a user input that generates calls to all
 * system operations.
@@ -29,52 +55,39 @@ public class Inspector {
 
  public void Execution() {
     //Inspector specifies that a new inspection may be started.
-    control.startInspection();
+        control.startInspection();
     
     //Inspector instructs program to close garage door.
-    control.closeDoor();
+        control.closeDoor();
     
     //Inspector enters vehicle’s license number.
-    System.out.println("please input the license number: ");
-    Scanner license = new Scanner(System.in);
-    String licenseNbr = license.nextLine();
-    RegNoDTO regNo = new RegNoDTO(licenseNbr); 
-    //RegNoDTO regNo = new RegNoDTO("ABC299");
-    
+        RegNoDTO regNo = input();
     
     //Program tells cost for inspection.if there is no such regNo,the program will exit.  
-    int inspectionCost= control.enterRegNo(regNo);
-    if (inspectionCost == 0)
-    {
-        System.out.println("There is no such license number!");
-        System.exit(0);
-    }    
-    else
-    {
-        System.out.println("The cost is: " +inspectionCost);
-    }
+        judgeInput(regNo);
     
     
     //Program retrieves appropriate inspections for vehicle.
-    InspectionResultsRegistry InspectionResults = control.getInspections(regNo);
+        ArrayList<InspectionsDTO> InspectionResults = control.getInspections(regNo);
+        control.printsResults(InspectionResults) ;
     
     //Inspector enters result of the specified inspection.
-    for (InspectionsDTO InspectionResult : InspectionResults.getInspections()) 
-    {  
-        System.out.println("please input the result of " + InspectionResult.getInspectionName()+":");
-        Scanner result = new Scanner(System.in);
-        if (result.nextLine().equals("pass")) {
-            InspectionResult.SetInspectionResult("pass");
-        }
-        else {
-            InspectionResult.SetInspectionResult("fail");
+        for (InspectionsDTO InspectionResult : InspectionResults) 
+        {  
+            System.out.println("please input the result of " + InspectionResult.getInspectionName()+":");
+            Scanner result = new Scanner(System.in);
+            if (result.nextLine().equals("pass")) {
+                InspectionResult.SetInspectionResult("pass");
+            }
+            else {
+                InspectionResult.SetInspectionResult("fail");
             }
         }
     //commit
-    control.Inspect(InspectionResults);
+        control.Inspect(InspectionResults);
     
     //Program prints inspection results.
-    control.printsResults(InspectionResults) ;
+        control.printsResults(InspectionResults) ;
     
     
     

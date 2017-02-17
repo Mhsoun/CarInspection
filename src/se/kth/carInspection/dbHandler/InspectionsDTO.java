@@ -12,11 +12,13 @@ import java.util.HashMap;
 public class InspectionsDTO {
     private String inspectionName;
     private String inspectionResult;    
+    private RegNoDTO regNo;
     
-    public InspectionsDTO(String inspectionName,String inspectionResult)
+    public InspectionsDTO(String inspectionName,String inspectionResult,RegNoDTO regNo)
     {
         this.inspectionName = inspectionName;
         this.inspectionResult = inspectionResult;
+        this.regNo = regNo;
     }
     public String getInspectionName()
     { 
@@ -28,9 +30,22 @@ public class InspectionsDTO {
         return this.inspectionResult;   
     }
    
+    public RegNoDTO getRegNo()
+    { 
+        return this.regNo;   
+    }
+    
     public void SetInspectionResult(String inspectionResult)
     { 
           this.inspectionResult = inspectionResult; 
     }
     
+    
+    boolean matches(RegNoDTO regNo)
+    {   
+        if (this.regNo.getRegNo().equals(regNo.getRegNo()))
+            {return true;}
+        else 
+            {return false;}
+    }  
 }

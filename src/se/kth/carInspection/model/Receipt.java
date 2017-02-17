@@ -7,23 +7,24 @@ package se.kth.carInspection.model;
 
 import se.kth.carInspection.dbHandler.InspectionCostDTO;
 import se.kth.carInspection.dbHandler.RegNoDTO;
-
+import java.util.Date;
 /**
  *
  * @author tmpuser-10209
  */
 public class Receipt {
-    private RegNoDTO regNumber;
     private InspectionCostDTO inspectionCost;
-    public Receipt () {
-        
-        inspectionCost = new InspectionCostDTO();
-        regNumber = new RegNoDTO();
+    public Receipt (InspectionCostDTO inspectionCost) {
+    
+        this.inspectionCost = inspectionCost ;
+ 
                 
     }
     public void printReceipt () {
-        System.out.println("the car registration number is" + regNumber.getRegNo());
-        System.out.println("the inspection cost is:" + inspectionCost.getcost());
+        Date Time = new Date();
+        System.out.println("The inspection time: " + Time.toString());
+        System.out.println("The car registration number is: " + inspectionCost.getregNo().getRegNo());
+        System.out.println("The inspection cost is:" + inspectionCost.getcost());
             
         
     }

@@ -18,6 +18,7 @@ import se.kth.carInspection.model.CreditCard;
 import se.kth.carInspection.model.GarageDoor;
 import se.kth.carInspection.model.PaymentInterface;
 import se.kth.carInspection.model.QueueNumberDisplay;
+import se.kth.carInspection.model.Receipt;
 /**
  *
  * @author tmpuser-10209
@@ -50,21 +51,27 @@ public class Controller {
                  
     }
     
+        public void printsReceipt(Receipt receipt ) 
+    {    
+        printer.printReceipt(receipt);
+    
+    }
+    
     //Program tells inspector what to inspect on customer’s vehicle.
-    public InspectionResultsRegistry getInspections(RegNoDTO regNo)
+    public ArrayList<InspectionsDTO> getInspections(RegNoDTO regNo)
     {
-        return creator.getInspectionResultsRegistry();
+        return creator.getInspectionResultsRegistry().getInspections(regNo);
         
     }  
     
     //Program stores inspection results.
-    public void Inspect(InspectionResultsRegistry InspectionResults)
+    public void Inspect(ArrayList<InspectionsDTO>  InspectionResults)
     {
      creator.getInspectionResultsRegistry().setInspectionsResults(InspectionResults);
     }
     
     //Program prints inspection results.
-    public void printsResults(InspectionResultsRegistry InspectionResults ) 
+    public void printsResults(ArrayList<InspectionsDTO>  InspectionResults ) 
     {    
         printer.printResult(InspectionResults);
     

@@ -20,22 +20,35 @@ public class InspectionResultsRegistry {
     
     
     //Program stores inspection results.
-    public void setInspectionsResults(InspectionResultsRegistry InspectionResults)     
-    { 
-        this.InspectionResults = InspectionResults.getInspections();
+    public void setInspectionsResults(ArrayList<InspectionsDTO> InspectionResults)     
+    {  
+        this.InspectionResults = InspectionResults;
       
     }
     
-    public ArrayList<InspectionsDTO> getInspections()    
+    public ArrayList<InspectionsDTO> getInspections(RegNoDTO regNo)     
     {
-        return InspectionResults;
+        ArrayList<InspectionsDTO> Results = new ArrayList<>();
+        for (InspectionsDTO inspection : InspectionResults) {
+            if (inspection.matches(regNo)) {
+                Results.add(inspection);       
+            }
+          
+        }
+        return Results;
     }
-    
+  
             
     private void addInspections() {
-        InspectionResults.add(new InspectionsDTO("egine","unchecked"));
-        InspectionResults.add(new InspectionsDTO("body","unchecked"));
-        InspectionResults.add(new InspectionsDTO("light","unchecked"));
+        RegNoDTO RegNo1 = new RegNoDTO("ABC299");
+        RegNoDTO RegNo2 = new RegNoDTO("DEF399");
+        RegNoDTO RegNo3 = new RegNoDTO("HIJ499");
+        InspectionResults.add(new InspectionsDTO("egine","unchecked",RegNo3));
+        InspectionResults.add(new InspectionsDTO("body","unchecked",RegNo3));
+        InspectionResults.add(new InspectionsDTO("light","unchecked",RegNo3));
+        InspectionResults.add(new InspectionsDTO("egine","unchecked",RegNo2));
+        InspectionResults.add(new InspectionsDTO("body","unchecked",RegNo2));
+        InspectionResults.add(new InspectionsDTO("egine","unchecked",RegNo1));
      }
     
 }

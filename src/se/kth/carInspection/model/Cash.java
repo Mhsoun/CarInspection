@@ -6,18 +6,20 @@
 package se.kth.carInspection.model;
 
 import se.kth.carInspection.dbHandler.InspectionCostDTO;
+import se.kth.carInspection.dbHandler.InspectionCostRegistry;
+import se.kth.carInspection.dbHandler.RegNoDTO;
 
 /**
  *
  * @author Mahsoun
  */
 public class Cash implements PaymentInterface  {
-    private InspectionCostDTO inspectionFees;
+    private InspectionCostRegistry inspectionFees;
     private int amountOfCash;
   
    
     public Cash (int cash){
-        inspectionFees = new InspectionCostDTO();
+        inspectionFees = new InspectionCostRegistry();
         this.amountOfCash = cash;
     }
     /*public PaymentMethod identifyMethod(){
@@ -26,14 +28,15 @@ public class Cash implements PaymentInterface  {
     
     
     
-    public boolean doPayment (){ 
-        int cost = inspectionFees.getcost();
+    public boolean doPayment (RegNoDTO regNo){ 
+        int cost = inspectionFees.getCost(regNo);
        if(this.amountOfCash >= cost){
            amountOfCash -= cost;
            System.out.println("payment scussful");
            return true;
-       }
+       } else {
        return false;
+    }
     }
     public int getBalance(){
         System.out.println("return the balance");

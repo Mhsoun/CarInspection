@@ -13,7 +13,11 @@ import se.kth.carInspection.dbHandler.Printer;
 import se.kth.carInspection.dbHandler.InspectionCostRegistry;
 import se.kth.carInspection.dbHandler.InspectionsDTO;
 import se.kth.carInspection.dbHandler.InspectionResultsRegistry;
+import se.kth.carInspection.model.Cash;
+import se.kth.carInspection.model.CreditCard;
 import se.kth.carInspection.model.GarageDoor;
+import se.kth.carInspection.model.PaymentInterface;
+import se.kth.carInspection.model.QueueNumberDisplay;
 /**
  *
  * @author tmpuser-10209
@@ -22,26 +26,23 @@ public class Controller {
     private RegistryCreator creator;
     private Printer printer;
     private GarageDoor doorOpenClose;
-    private InspectionsDTO inspection;
     private QueueNumberDisplay queueNumber;
-    
+    private PaymentInterface payment;
+    private Cash cashPayment;
+    private CreditCard creditCardPayment;
     public Controller(RegistryCreator creator, Printer printer) {
         this.creator = creator;
         this.printer = printer;
+        doorOpenClose = new GarageDoor();
+        queueNumber = new QueueNumberDisplay();
     }
+    
     
     public void startInspection(){
-        doorOpenClose.open();
-    
-    }
-    public void closeDoor(){
-        doorOpenClose.close();
-        
-    }
-     public void openDoor(){
-        doorOpenClose.open();
-        
-    }
+        queueNumber.increment();
+        queueNumber.showNextNo();
+           
+    } 
     
     public  int enterRegNo(RegNoDTO regNo){
         
@@ -68,4 +69,22 @@ public class Controller {
         printer.printResult(InspectionResults);
     
     }
+    public void closeDoor(){
+        doorOpenClose.close();
+        
+    }
+    public void openDoor(){
+        doorOpenClose.open();        
+    }
+    
+    public void Paying(boolean cashOrCreditCard, int cash){
+        if (cashOrCreditCard == true){
+            cashPayment = new Cash(cash);
+        } else {
+            creditCardPayment = new CreditCard (cash);
+        }
+                
+        
+    }
+
 }

@@ -17,7 +17,7 @@ public class Printer {
     
     public void printReceipt(Receipt receipt) 
     { 
-    receipt.printReceipt();
+    //receipt.printReceipt();
     }
     
     public void printResult(InspectionResultsRegistry InspectionResults)

@@ -5,13 +5,19 @@
  */
 package se.kth.carInspection.model;
 
+import se.kth.carInspection.dbHandler.RegNoDTO;
+
 /**
  *
  * @author Mahsoun
  */
 public interface PaymentInterface {
     
-    
-    public boolean doPayment();    
-    
+    /**
+     *
+     * @param regNo
+     * @return
+     */
+    public boolean doPayment(RegNoDTO regNo);    
+   
 }

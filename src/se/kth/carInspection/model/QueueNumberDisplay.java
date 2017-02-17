@@ -10,17 +10,18 @@ public class QueueNumberDisplay {
         number = 0;
         openTheGarageDoor = new GarageDoor();    
     }
-    public int showNextNo(){
+    public void showNextNo(){
         
         System.out.println("Queue Number = : "+number);
-        return number;
+        openTheGarageDoor.open();
+        
 }
     
  
 public void increment(){
 
        ++number;
-       openTheGarageDoor.open();
+     
 	}   
 public void restNumbers(){
     number = 0;

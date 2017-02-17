@@ -7,13 +7,16 @@
 package se.kth.carInspection.model;
 import java.util.*;
 import se.kth.carInspection.dbHandler.InspectionCostDTO;
+import se.kth.carInspection.dbHandler.InspectionCostRegistry;
+import se.kth.carInspection.dbHandler.RegNoDTO;
+
 
 /**
  *
  * @author Mahsoun
  */
 public class CreditCard implements PaymentInterface {
-    private InspectionCostDTO inspectionFees;
+    private InspectionCostRegistry inspectionFees;
     private int cardBalance;
     private int pin;
     private int creditCardNO;
@@ -21,16 +24,18 @@ public class CreditCard implements PaymentInterface {
     private Date expireDate;
     private int cvc;
     
-    public CreditCard (int pin, int creditCardNO, String cardHolderName, int cvc) {//
+    public CreditCard (int cash) {
     
-        inspectionFees = new InspectionCostDTO();
-        cardBalance = 1000;
+        inspectionFees = new InspectionCostRegistry();
+        this.cardBalance = cardBalance;
+    /*
+        
         this.pin = pin;
         this.creditCardNO = creditCardNO;
         this.cardHolderName = cardHolderName;
         this.expireDate = expireDate;
         this.cvc = cvc;
-    
+    */
     }
     
     /* 
@@ -38,19 +43,21 @@ public class CreditCard implements PaymentInterface {
      * we give the ability to user to enter blance as example 
      * i assume the inspection cost are fixed for the current stage
     */
-public boolean  doPayment (){ 
+public boolean  doPayment (RegNoDTO regNo){ 
     
-    int amount = inspectionFees.getcost();
+    int amount = inspectionFees.getCost(regNo);
     
    if ((cardBalance - amount) >= 0){
        
       
     cardBalance = cardBalance - amount;
    return true;
-   }else System.out.println("cardpaymentfaluiler");
-    return false;
-}    
- 
+   }else {
+       System.out.println("cardpaymentfaluiler");
+       return false;
+
+   }    
+}
 //public int getPin (){
 //return pin;
 //}

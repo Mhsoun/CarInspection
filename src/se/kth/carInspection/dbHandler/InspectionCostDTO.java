@@ -17,10 +17,12 @@ public class InspectionCostDTO {
         this.cost = cost;
         this.regNo = regNo;
     }
+    public InspectionCostDTO()
+    {
 
-    public InspectionCostDTO() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+
     public int getcost()
     {
         return this.cost;

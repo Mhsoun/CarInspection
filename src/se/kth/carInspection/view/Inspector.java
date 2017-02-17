@@ -25,6 +25,7 @@ public class Inspector {
 * Simulates a user input that generates calls to all
 * system operations.
 */
+    
 
  public void Execution() {
     //Inspector specifies that a new inspection may be started.
@@ -75,7 +76,34 @@ public class Inspector {
     //Program prints inspection results.
     control.printsResults(InspectionResults) ;
     
-
- }   
     
+    
+    Scanner scanPaymentMethod = new Scanner (System.in);
+    boolean userBehaving= false;
+    boolean isCash = false;
+    int cash = 0;
+    while (!userBehaving){ 
+    System.out.println("choose weather u r going to pay by cash or card by typing (cash) or (card)");
+    String userPaymentChoice =scanPaymentMethod.nextLine();
+    System.out.println("the amount of cash u have in your card or in ur hand (doesnät matter for the moment)");
+    cash = scanPaymentMethod.nextInt();
+    
+    if (userPaymentChoice.equals("cash")){
+        isCash=true;
+        userBehaving = true;
+    } else if (userPaymentChoice.equals("card")){
+        isCash=false;
+        userBehaving =true;
+    } else {
+        System.out.println("u should enter cash or card!");
+        userBehaving=false;
+    }
+    }
+    control.Paying(isCash, cash);
+   
+    
+ }   
 }
+
+    
+

@@ -16,6 +16,7 @@ public class Receipt {
     private RegNoDTO regNumber;
     private InspectionCostDTO inspectionCost;
     public Receipt () {
+        
         inspectionCost = new InspectionCostDTO();
         regNumber = new RegNoDTO();
                 

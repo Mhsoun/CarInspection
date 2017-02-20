@@ -43,7 +43,7 @@ public class InspectionResultsRegistry {
         RegNoDTO RegNo1 = new RegNoDTO("ABC299");
         RegNoDTO RegNo2 = new RegNoDTO("DEF399");
         RegNoDTO RegNo3 = new RegNoDTO("HIJ499");
-        InspectionResults.add(new InspectionsDTO("egine","unchecked",RegNo3));
+        InspectionResults.add(new InspectionsDTO("engine","unchecked",RegNo3));
         InspectionResults.add(new InspectionsDTO("body","unchecked",RegNo3));
         InspectionResults.add(new InspectionsDTO("light","unchecked",RegNo3));
         InspectionResults.add(new InspectionsDTO("egine","unchecked",RegNo2));

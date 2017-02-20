@@ -90,7 +90,8 @@ public class Inspector {
     
     //Judge if it is a valid regno 
         judgeInput(regNo);
-    
+        
+    //Inspector performs the specified inspection.
         Inspect(regNo);
    
     

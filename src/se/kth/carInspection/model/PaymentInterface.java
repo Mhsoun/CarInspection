@@ -18,6 +18,6 @@ public interface PaymentInterface {
      * @param regNo
      * @return
      */
-    public boolean doPayment(RegNoDTO regNo);    
-   
+    public int doPayment(RegNoDTO regNo);    
+ 
 }

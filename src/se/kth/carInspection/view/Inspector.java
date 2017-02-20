@@ -89,7 +89,7 @@ public class Inspector {
     //Inspector enters vehicle’s license number.
         RegNoDTO regNo = input();
     
-    //Judge if it is a valid regNo 
+    //Judge if it is a valid regNo. 
         RegNoDTO regNo1 = judgeInput(regNo);
         
     //Inspector performs the specified inspection.

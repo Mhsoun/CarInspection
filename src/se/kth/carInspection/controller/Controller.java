@@ -97,7 +97,7 @@ public class Controller {
             return cashPayment.doPayment(regNo);
         } else {
             creditCardPayment = new CreditCard (cash);
-            return cashPayment.doPayment(regNo);
+            return creditCardPayment.doPayment(regNo);
         }
                 
         

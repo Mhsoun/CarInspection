@@ -24,7 +24,7 @@ public class CreditCard implements PaymentInterface {
     private Date expireDate;
     private int cvc;
     
-    public CreditCard (int cash) {
+    public CreditCard (int cardBalance) {
     
         inspectionFees = new InspectionCostRegistry();
         this.cardBalance = cardBalance;

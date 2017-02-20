@@ -92,8 +92,8 @@ public class Inspector {
     //Judge if it is a valid regNo. 
         RegNoDTO regNo1 = judgeInput(regNo);
         
-    //Inspector performs the specified inspection.
-        Inspect(regNo1);
+
+     
    
     
     Scanner scanPaymentMethod = new Scanner (System.in);
@@ -117,9 +117,10 @@ public class Inspector {
         userBehaving=false;
     }
     }
-    System.out.println(control.Paying(isCash, cash,regNo)+"your balance");
-    
-   
+    System.out.println("your balance is:    " + control.Paying(isCash, cash,regNo));
+       
+    //Inspector performs the specified inspection.
+      Inspect(regNo1);
     
  }   
 }

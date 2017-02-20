@@ -21,9 +21,20 @@ public class Printer {
     //receipt.printReceipt();
     }
     
-    public void printResult(ArrayList<InspectionsDTO>  InspectionResults)
+    public void printInspectionList(ArrayList<InspectionsDTO>  InspectionResults)
+    {
+       System.out.println("*****The Inspect list of your car as follows: *****");
+       printInspections(InspectionResults);
+    }
+        
+    public void printInspectionResult(ArrayList<InspectionsDTO>  InspectionResults)
     {
        System.out.println("*****The Inspect result of your car as follows: *****");
+       printInspections(InspectionResults);
+    }
+    
+    public void printInspections(ArrayList<InspectionsDTO>  InspectionResults)
+    {
         for (InspectionsDTO inspection : InspectionResults) 
         {
                System.out.println(inspection.getInspectionName() +": "+ inspection.getInspectionResult());

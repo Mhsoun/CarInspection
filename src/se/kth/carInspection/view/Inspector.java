@@ -50,7 +50,7 @@ public class Inspector {
     {
         //Program retrieves appropriate inspections for vehicle.
         ArrayList<InspectionsDTO> InspectionResults = control.getInspections(regNo);
-        control.printsResults(InspectionResults) ;
+        control.printInspectionList(InspectionResults) ;
         
         //Inspector enters result of the specified inspection.
         for (InspectionsDTO InspectionResult : InspectionResults) 
@@ -69,7 +69,7 @@ public class Inspector {
     control.Inspect(InspectionResults);
     
     //Program prints inspection results.
-    control.printsResults(InspectionResults) ;
+    control.printInspectionResults(InspectionResults) ;
     }
 
 /**

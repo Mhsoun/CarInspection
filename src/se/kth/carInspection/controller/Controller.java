@@ -53,6 +53,11 @@ public class Controller {
                  
     }
     
+    public void printInspectionList(ArrayList<InspectionsDTO>  InspectionResults ) 
+    {    
+        printer.printInspectionList(InspectionResults);
+    
+    }
         public void printsReceipt(Receipt receipt ) 
     {    
         printer.printReceipt(receipt);
@@ -73,9 +78,9 @@ public class Controller {
     }
     
     //Program prints inspection results.
-    public void printsResults(ArrayList<InspectionsDTO>  InspectionResults ) 
+    public void printInspectionResults(ArrayList<InspectionsDTO>  InspectionResults ) 
     {    
-        printer.printResult(InspectionResults);
+        printer.printInspectionResult(InspectionResults);
     
     }
     public void closeDoor(){

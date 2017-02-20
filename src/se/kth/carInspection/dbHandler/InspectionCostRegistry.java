@@ -21,7 +21,7 @@ public class InspectionCostRegistry {
     public int getCost(RegNoDTO regNo)     
     {
         for (InspectionCostDTO cost : costs) {
-            if (cost.matches(regNo)) {
+            if (cost.getregNo().matches(regNo)) {
                 return cost.getcost();
             }
         }

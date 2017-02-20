@@ -30,20 +30,20 @@ public class Inspector {
         String licenseNbr = license.nextLine();
         RegNoDTO regNo = new RegNoDTO(licenseNbr);   
         //RegNoDTO regNo = new RegNoDTO("ABC299");
-        return regNo;
+         return regNo;
      }
     
-    public void judgeInput(RegNoDTO regNo)
+    public RegNoDTO judgeInput(RegNoDTO regNo)
     {   
         int inspectionCost= control.enterRegNo(regNo);
         while(inspectionCost == 0)
         {
             System.out.println("Sorry,there is no such license number!");
-            RegNoDTO regNo1 = input();
-            inspectionCost= control.enterRegNo(regNo1);
-        }    
-        
+            regNo = input();
+            inspectionCost= control.enterRegNo(regNo);            
+        }   
         System.out.println("The cost is: " +inspectionCost);
+        return regNo;              
     }
     
     public void Inspect(RegNoDTO regNo)
@@ -65,11 +65,12 @@ public class Inspector {
             }
         }      
         
-    //commit
-    control.Inspect(InspectionResults);
+        //commit
+        control.Inspect(InspectionResults);
     
-    //Program prints inspection results.
-    control.printInspectionResults(InspectionResults) ;
+        //Program prints inspection results.
+        control.printInspectionResults(InspectionResults) ;
+
     }
 
 /**
@@ -88,11 +89,11 @@ public class Inspector {
     //Inspector enters vehicle’s license number.
         RegNoDTO regNo = input();
     
-    //Judge if it is a valid regno 
-        judgeInput(regNo);
+    //Judge if it is a valid regNo 
+        RegNoDTO regNo1 = judgeInput(regNo);
         
     //Inspector performs the specified inspection.
-        Inspect(regNo);
+        Inspect(regNo1);
    
     
     Scanner scanPaymentMethod = new Scanner (System.in);

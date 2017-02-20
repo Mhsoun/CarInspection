@@ -32,7 +32,7 @@ public class InspectionCostDTO {
     {
         return this.regNo;
     }
-    
+    /*
     //Judge if it is the input vehicle’s license number.
     boolean matches(RegNoDTO regNo)
     {   
@@ -40,5 +40,5 @@ public class InspectionCostDTO {
             {return true;}
         else 
             {return false;}
-    }       
+    }       */
 }

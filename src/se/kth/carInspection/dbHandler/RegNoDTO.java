@@ -21,4 +21,13 @@ public class RegNoDTO {
     {
         return this.regNo;
     }
+    
+    //Judge if it is the input vehicle’s license number.
+    boolean matches(RegNoDTO regNo)
+    {   
+        if (this.regNo.equals(regNo.getRegNo()))
+            {return true;}
+        else 
+            {return false;}
+    }  
 }

@@ -30,7 +30,7 @@ public class InspectionResultsRegistry {
     {
         ArrayList<InspectionsDTO> Results = new ArrayList<>();
         for (InspectionsDTO inspection : InspectionResults) {
-            if (inspection.matches(regNo)) {
+            if (inspection.getRegNo().matches(regNo)) {
                 Results.add(inspection);       
             }
           

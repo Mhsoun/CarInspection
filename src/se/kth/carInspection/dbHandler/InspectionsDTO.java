@@ -41,11 +41,11 @@ public class InspectionsDTO {
     }
     
     
-    boolean matches(RegNoDTO regNo)
+    /*boolean matches(RegNoDTO regNo)
     {   
         if (this.regNo.getRegNo().equals(regNo.getRegNo()))
             {return true;}
         else 
             {return false;}
-    }  
+    }  */
 }

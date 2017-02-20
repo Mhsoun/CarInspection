@@ -38,40 +38,21 @@ public class Inspector {
         int inspectionCost= control.enterRegNo(regNo);
         while(inspectionCost == 0)
         {
-            System.out.println("There is no such license number!");
+            System.out.println("Sorry,there is no such license number!");
             RegNoDTO regNo1 = input();
             inspectionCost= control.enterRegNo(regNo1);
         }    
         
         System.out.println("The cost is: " +inspectionCost);
-    
     }
     
- /**
-* Simulates a user input that generates calls to all
-* system operations.
-*/
-    
-
- public void Execution() {
-    //Inspector specifies that a new inspection may be started.
-        control.startInspection();
-    
-    //Inspector instructs program to close garage door.
-        control.closeDoor();
-    
-    //Inspector enters vehicle’s license number.
-        RegNoDTO regNo = input();
-    
-    //Program tells cost for inspection.if there is no such regNo,the program will exit.  
-        judgeInput(regNo);
-    
-    
-    //Program retrieves appropriate inspections for vehicle.
+    public void Inspect(RegNoDTO regNo)
+    {
+        //Program retrieves appropriate inspections for vehicle.
         ArrayList<InspectionsDTO> InspectionResults = control.getInspections(regNo);
         control.printsResults(InspectionResults) ;
-    
-    //Inspector enters result of the specified inspection.
+        
+        //Inspector enters result of the specified inspection.
         for (InspectionsDTO InspectionResult : InspectionResults) 
         {  
             System.out.println("please input the result of " + InspectionResult.getInspectionName()+":");
@@ -82,14 +63,36 @@ public class Inspector {
             else {
                 InspectionResult.SetInspectionResult("fail");
             }
-        }
+        }      
+        
     //commit
-        control.Inspect(InspectionResults);
+    control.Inspect(InspectionResults);
     
     //Program prints inspection results.
-        control.printsResults(InspectionResults) ;
+    control.printsResults(InspectionResults) ;
+    }
+
+/**
+* Simulates a user input that generates calls to all
+* system operations.
+*/
+  
+
+    public void Execution() {
+    //Inspector specifies that a new inspection may be started.
+        control.startInspection();
     
+    //Inspector instructs program to close garage door.
+        control.closeDoor();
     
+    //Inspector enters vehicle’s license number.
+        RegNoDTO regNo = input();
+    
+    //Judge if it is a valid regno 
+        judgeInput(regNo);
+    
+        Inspect(regNo);
+   
     
     Scanner scanPaymentMethod = new Scanner (System.in);
     boolean userBehaving= false;

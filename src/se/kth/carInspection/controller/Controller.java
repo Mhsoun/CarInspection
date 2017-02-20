@@ -45,6 +45,8 @@ public class Controller {
            
     } 
     
+
+        
     public  int enterRegNo(RegNoDTO regNo){
         
         return creator.getInspectionCostRegistry().getCost(regNo);

@@ -28,6 +28,8 @@ public class InspectionCostRegistry {
       return 0;
     }
     
+       
+                   
     private void addCosts() {
         RegNoDTO RegNo1 = new RegNoDTO("ABC299");
         RegNoDTO RegNo2 = new RegNoDTO("DEF399");

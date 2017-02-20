@@ -28,20 +28,18 @@ public class Cash implements PaymentInterface  {
     
     
     
-    public boolean doPayment (RegNoDTO regNo){ 
+    public int doPayment (RegNoDTO regNo){ 
         int cost = inspectionFees.getCost(regNo);
        if(this.amountOfCash >= cost){
            amountOfCash -= cost;
            System.out.println("payment scussful");
-           return true;
+           return this.amountOfCash;
        } else {
-       return false;
+           System.out.println("Payment fail");
+       return 0;
     }
     }
-    public int getBalance(){
-        System.out.println("return the balance");
-        return this.amountOfCash;
-    }
+
             
     
         

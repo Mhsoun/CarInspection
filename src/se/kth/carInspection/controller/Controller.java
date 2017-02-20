@@ -36,7 +36,7 @@ public class Controller {
         this.printer = printer;
         doorOpenClose = new GarageDoor();
         queueNumber = new QueueNumberDisplay();
-    }
+      }
     
     
     public void startInspection(){
@@ -91,11 +91,13 @@ public class Controller {
         doorOpenClose.open();        
     }
     
-    public void Paying(boolean cashOrCreditCard, int cash){
+    public int Paying(boolean cashOrCreditCard, int cash, RegNoDTO regNo){
         if (cashOrCreditCard == true){
             cashPayment = new Cash(cash);
+            return cashPayment.doPayment(regNo);
         } else {
             creditCardPayment = new CreditCard (cash);
+            return cashPayment.doPayment(regNo);
         }
                 
         

@@ -43,7 +43,7 @@ public class CreditCard implements PaymentInterface {
      * we give the ability to user to enter blance as example 
      * i assume the inspection cost are fixed for the current stage
     */
-public boolean  doPayment (RegNoDTO regNo){ 
+public int  doPayment (RegNoDTO regNo){ 
     
     int amount = inspectionFees.getCost(regNo);
     
@@ -51,13 +51,15 @@ public boolean  doPayment (RegNoDTO regNo){
        
       
     cardBalance = cardBalance - amount;
-   return true;
+   return this.cardBalance;
    }else {
        System.out.println("cardpaymentfaluiler");
-       return false;
+       return 0;
+       
+   }   
 
-   }    
 }
+   
 //public int getPin (){
 //return pin;
 //}

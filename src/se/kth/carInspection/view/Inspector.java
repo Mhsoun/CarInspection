@@ -117,7 +117,8 @@ public class Inspector {
         userBehaving=false;
     }
     }
-    control.Paying(isCash, cash);
+    System.out.println(control.Paying(isCash, cash,regNo)+"your balance");
+    
    
     
  }   

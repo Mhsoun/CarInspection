@@ -7,7 +7,7 @@ package se.kth.carInspection.dbHandler;
 import java.util.HashMap;
 /**
  *
- * @author tmpuser-10209
+ * @author Shuai Wang
  */
 public class InspectionsDTO {
     private String inspectionName;

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author tmpuser-10209
+ * @author Shuai Wang
  */
 public class InspectionResultsRegistry {
     private ArrayList<InspectionsDTO> InspectionResults = new ArrayList<>();

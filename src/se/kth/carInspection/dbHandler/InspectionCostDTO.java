@@ -7,7 +7,7 @@ package se.kth.carInspection.dbHandler;
 
 /**
  *
- * @Shuai Wang tmpuser-10209
+ * @author Shuai Wang
  */
 public class InspectionCostDTO {
     private int cost;

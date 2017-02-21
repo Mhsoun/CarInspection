@@ -13,7 +13,7 @@ import se.kth.carInspection.dbHandler.RegNoDTO;
 import java.util.Scanner;
 /**
  *
- * @author tmpuser-10209
+ * @author Shuai Wang
  */
 public class Inspector {
     private Controller control;

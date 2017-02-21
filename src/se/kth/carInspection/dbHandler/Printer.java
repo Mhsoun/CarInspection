@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import se.kth.carInspection.model.Receipt;
 /**
  *
- * @author tmpuser-10209
+ * @author Shuai Wang
  */
 public class Printer {
     

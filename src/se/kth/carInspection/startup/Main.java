@@ -9,7 +9,7 @@ import se.kth.carInspection.dbHandler.RegistryCreator;
 import se.kth.carInspection.view.Inspector;
 /**
  *
- * @author tmpuser-10209
+ * @author Shuai Wang
  */
 public class Main {
 

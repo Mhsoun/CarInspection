@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author tmpuser-10209
+ * @author Shuai Wang
  */
 //InspectionCostRegistry will just look in an array of InspectionCost. 
 public class InspectionCostRegistry {

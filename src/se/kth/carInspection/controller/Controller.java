@@ -19,6 +19,7 @@ import se.kth.carInspection.model.GarageDoor;
 import se.kth.carInspection.model.PaymentInterface;
 import se.kth.carInspection.model.QueueNumberDisplay;
 import se.kth.carInspection.model.Receipt;
+import se.kth.carInspection.dbHandler.IncorrectRegNoException;
 /**
  *
  * @author tmpuser-10209
@@ -45,7 +46,10 @@ public class Controller {
            
     } 
     
-
+    public  void judegeInput(RegNoDTO regNo) throws IncorrectRegNoException
+    {
+        creator.getInspectionCostRegistry().judgeInput(regNo);
+    }
         
     public  int enterRegNo(RegNoDTO regNo){
         

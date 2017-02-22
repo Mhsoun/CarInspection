@@ -5,6 +5,7 @@
  */
 package se.kth.carInspection.dbHandler;
 import java.util.ArrayList; 
+import java.util.Iterator;
 
 /**
  *
@@ -38,4 +39,25 @@ public class InspectionCostRegistry {
         costs.add(new InspectionCostDTO(399,RegNo2));
         costs.add(new InspectionCostDTO(499,RegNo3));
      }
-}
+    
+
+    /**
+     * A license number is illegal if there are no inspections for that number
+     * @param regNo The license number to input
+     * @throws IncorrectRegNoException If a license number is illegal
+     */
+    public void judgeInput(RegNoDTO regNo) throws IncorrectRegNoException
+    {   
+        Iterator<InspectionCostDTO> it = costs.iterator();  
+        int count = 0;
+        while(it.hasNext()){
+            InspectionCostDTO cost = it.next();
+            if (cost.getregNo().matches(regNo)) 
+                { count =count+1; }
+        }
+        if(count == 0){
+        throw new IncorrectRegNoException("Incorrect License Number !");
+            }
+       }
+ }
+

@@ -46,9 +46,9 @@ public class InspectionResultsRegistry {
         InspectionResults.add(new InspectionsDTO("engine","unchecked",RegNo3));
         InspectionResults.add(new InspectionsDTO("body","unchecked",RegNo3));
         InspectionResults.add(new InspectionsDTO("light","unchecked",RegNo3));
-        InspectionResults.add(new InspectionsDTO("egine","unchecked",RegNo2));
+        InspectionResults.add(new InspectionsDTO("engine","unchecked",RegNo2));
         InspectionResults.add(new InspectionsDTO("body","unchecked",RegNo2));
-        InspectionResults.add(new InspectionsDTO("egine","unchecked",RegNo1));
+        InspectionResults.add(new InspectionsDTO("engine","unchecked",RegNo1));
      }
     
 }

@@ -15,6 +15,7 @@ public class RegistryCreator {
     
     public RegistryCreator()
     {   
+
         inspectionCostRegistry = new InspectionCostRegistry();
         inspectionResultsRegistry = new InspectionResultsRegistry();
     }

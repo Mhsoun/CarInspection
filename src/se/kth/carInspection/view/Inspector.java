@@ -10,7 +10,9 @@ import se.kth.carInspection.dbHandler.InspectionCostDTO;
 import se.kth.carInspection.dbHandler.InspectionResultsRegistry;
 import se.kth.carInspection.dbHandler.InspectionsDTO;
 import se.kth.carInspection.dbHandler.RegNoDTO;
+
 import java.util.Scanner;
+import se.kth.carInspection.dbHandler.IncorrectRegNoException;
 /**
  *
  * @author Shuai Wang
@@ -26,14 +28,22 @@ public class Inspector {
     public RegNoDTO input()
     { 
         System.out.println("please input the license number: ");
-        Scanner license = new Scanner(System.in);
-        String licenseNbr = license.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String licenseNbr = scanner.nextLine();
         RegNoDTO regNo = new RegNoDTO(licenseNbr);   
-        //RegNoDTO regNo = new RegNoDTO("ABC299");
-         return regNo;
-     }
+        try{
+        control.judegeInput(regNo);               
+        return regNo;
+        }catch(IncorrectRegNoException e)
+        {
+          System.out.println("Incorrect License Number !"); 
+          return input();   
+          
+        }  
+     
+    }
     
-    public RegNoDTO judgeInput(RegNoDTO regNo)
+    /*public RegNoDTO judgeInput(RegNoDTO regNo)
     {   
         int inspectionCost= control.enterRegNo(regNo);
         while(inspectionCost == 0)
@@ -44,7 +54,14 @@ public class Inspector {
         }   
         System.out.println("The cost is: " +inspectionCost);
         return regNo;              
-    }
+    }*/
+      public int getCost(RegNoDTO regNo)
+    {   
+        int inspectionCost= control.enterRegNo(regNo);                
+         System.out.println("The cost is: " +inspectionCost);
+        return inspectionCost; 
+      }
+    
     
     public void Inspect(RegNoDTO regNo)
     {
@@ -87,10 +104,10 @@ public class Inspector {
         control.closeDoor();
     
     //Inspector enters vehicle’s license number.
-        RegNoDTO regNo = input();
+       RegNoDTO regNo = input();
     
-    //Judge if it is a valid regNo. 
-        RegNoDTO regNo1 = judgeInput(regNo);
+    //Get the regNo's cost. 
+        getCost(regNo);
         
 
      
@@ -120,8 +137,8 @@ public class Inspector {
     System.out.println("your balance is:    " + control.Paying(isCash, cash,regNo));
        
     //Inspector performs the specified inspection.
-      Inspect(regNo1);
-    
+      Inspect(regNo);
+          
  }   
 }
 

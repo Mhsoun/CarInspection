@@ -19,6 +19,7 @@ import se.kth.carInspection.model.GarageDoor;
 import se.kth.carInspection.model.PaymentInterface;
 import se.kth.carInspection.model.QueueNumberDisplay;
 import se.kth.carInspection.model.Receipt;
+import se.kth.carInspection.model.SetInspectionsResults;
 import se.kth.carInspection.dbHandler.IncorrectRegNoException;
 /**
  *
@@ -32,11 +33,13 @@ public class Controller {
     private PaymentInterface payment;
     private Cash cashPayment;
     private CreditCard creditCardPayment;
+    private SetInspectionsResults setInspectionsResult;
     public Controller(RegistryCreator creator, Printer printer) {
         this.creator = creator;
         this.printer = printer;
         doorOpenClose = new GarageDoor();
         queueNumber = new QueueNumberDisplay();
+        setInspectionsResult = new SetInspectionsResults();
       }
     
     
@@ -78,7 +81,8 @@ public class Controller {
     //Program stores inspection results.
     public void Inspect(ArrayList<InspectionsDTO>  InspectionResults)
     {
-     creator.getInspectionResultsRegistry().setInspectionsResults(InspectionResults);
+     //creator.getInspectionResultsRegistry().setInspectionsResults(InspectionResults);
+     setInspectionsResult.setResult(InspectionResults);
     }
     
     //Program prints inspection results.

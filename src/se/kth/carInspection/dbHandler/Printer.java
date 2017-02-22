@@ -29,7 +29,7 @@ public class Printer {
         
     public void printInspectionResult(ArrayList<InspectionsDTO>  InspectionResults)
     {
-       System.out.println("*****The Inspect result of your car as follows: *****");
+       System.out.println("*****The Inspect details of your car as follows: *****");
        printInspections(InspectionResults);
     }
     

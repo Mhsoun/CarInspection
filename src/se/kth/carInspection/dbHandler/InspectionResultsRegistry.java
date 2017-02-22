@@ -23,7 +23,7 @@ public class InspectionResultsRegistry {
     public void setInspectionsResults(ArrayList<InspectionsDTO> InspectionResults)     
     {  
         this.InspectionResults = InspectionResults;
-      
+        
     }
     
     public ArrayList<InspectionsDTO> getInspections(RegNoDTO regNo)     

@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import se.kth.carInspection.dbHandler.InspectionsDTO;
 import se.kth.carInspection.dbHandler.InspectionResultsRegistry;
-import se.kth.carInspection.view.InspectionStats;
+
 /**
  *
  * @author tmpuser-10209
  */
 public class SetInspectionsResults {
     
-     InspectionResultsRegistry InspectionResults;
+     private InspectionResultsRegistry InspectionResults;
      private  List<Observer> observers = new ArrayList<>();
      
      public SetInspectionsResults()
@@ -43,17 +43,20 @@ public class SetInspectionsResults {
                 }                
         }
         
-        attach(new InspectionStats());
         nodifyObservers(passCount,failCount);
         
     }
-     
+     /**
+     * Registers observers.
+     @param observer The observer that shall be registered.
+     */
      public void attach(Observer observer)
      {        
         observers.add(observer);
         System.out.println("Attached an observer");
     }
      
+     // Called  when inspection result is seted
      public void nodifyObservers(int passCount,int failCount)
      {
         for(Observer observer : observers){

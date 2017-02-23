@@ -6,11 +6,8 @@
 package se.kth.carInspection.view;
 import java.util.ArrayList;
 import se.kth.carInspection.controller.Controller;
-import se.kth.carInspection.dbHandler.InspectionCostDTO;
-import se.kth.carInspection.dbHandler.InspectionResultsRegistry;
 import se.kth.carInspection.dbHandler.InspectionsDTO;
 import se.kth.carInspection.dbHandler.RegNoDTO;
-
 import java.util.Scanner;
 import se.kth.carInspection.dbHandler.IncorrectRegNoException;
 /**
@@ -19,9 +16,12 @@ import se.kth.carInspection.dbHandler.IncorrectRegNoException;
  */
 public class Inspector {
     private Controller control;
+    private InspectionStats inspectionStats;
     
     public Inspector(Controller control) {
         this.control = control;
+        inspectionStats = new InspectionStats();
+        
     }
     
     
@@ -135,7 +135,10 @@ public class Inspector {
     }
     }
     System.out.println("your balance is:    " + control.Paying(isCash, cash,regNo));
-       
+     
+     //add Oberver
+     control.addObserver(inspectionStats);
+     
     //Inspector performs the specified inspection.
       Inspect(regNo);
           

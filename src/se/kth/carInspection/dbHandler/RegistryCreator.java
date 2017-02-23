@@ -9,6 +9,7 @@ package se.kth.carInspection.dbHandler;
  *
  * @author Shuai Wang
  */
+
 public class RegistryCreator {
     private InspectionCostRegistry inspectionCostRegistry ;
     private InspectionResultsRegistry inspectionResultsRegistry;

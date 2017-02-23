@@ -9,6 +9,7 @@ package se.kth.carInspection.dbHandler;
  *
  * @author Shuai Wang
  */
+
 public class RegNoDTO {
     private String regNo;
     

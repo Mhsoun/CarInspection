@@ -11,6 +11,7 @@ import java.util.Iterator;
  *
  * @author Shuai Wang
  */
+
 //InspectionCostRegistry will just look in an array of InspectionCost. 
 public class InspectionCostRegistry {
     private ArrayList<InspectionCostDTO> costs = new ArrayList<>(); 
@@ -27,9 +28,7 @@ public class InspectionCostRegistry {
             }
         }
       return 0;
-    }
-    
-       
+    }  
                    
     private void addCosts() {
         RegNoDTO RegNo1 = new RegNoDTO("ABC299");

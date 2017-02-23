@@ -9,6 +9,7 @@ import java.util.HashMap;
  *
  * @author Shuai Wang
  */
+
 public class InspectionsDTO {
     private String inspectionName;
     private String inspectionResult;    
@@ -20,6 +21,7 @@ public class InspectionsDTO {
         this.inspectionResult = inspectionResult;
         this.regNo = regNo;
     }
+    
     public String getInspectionName()
     { 
         return this.inspectionName;   
@@ -40,12 +42,4 @@ public class InspectionsDTO {
           this.inspectionResult = inspectionResult; 
     }
     
-    
-    /*boolean matches(RegNoDTO regNo)
-    {   
-        if (this.regNo.getRegNo().equals(regNo.getRegNo()))
-            {return true;}
-        else 
-            {return false;}
-    }  */
 }

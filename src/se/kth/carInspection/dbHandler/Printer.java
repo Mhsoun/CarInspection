@@ -10,6 +10,7 @@ import se.kth.carInspection.model.Receipt;
  *
  * @author Shuai Wang
  */
+
 public class Printer {
     
     

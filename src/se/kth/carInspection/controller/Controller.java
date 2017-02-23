@@ -21,6 +21,7 @@ import se.kth.carInspection.model.QueueNumberDisplay;
 import se.kth.carInspection.model.Receipt;
 import se.kth.carInspection.model.SetInspectionsResults;
 import se.kth.carInspection.dbHandler.IncorrectRegNoException;
+import se.kth.carInspection.view.InspectionStats;
 /**
  *
  * @author tmpuser-10209
@@ -65,7 +66,8 @@ public class Controller {
         printer.printInspectionList(InspectionResults);
     
     }
-        public void printsReceipt(Receipt receipt ) 
+    
+    public void printsReceipt(Receipt receipt ) 
     {    
         printer.printReceipt(receipt);
     
@@ -78,10 +80,14 @@ public class Controller {
         
     }  
     
+    public void addObserver(InspectionStats inspectionStats)
+    {    setInspectionsResult.attach(inspectionStats);
+    
+    }
+    
     //Program stores inspection results.
     public void Inspect(ArrayList<InspectionsDTO>  InspectionResults)
-    {
-     //creator.getInspectionResultsRegistry().setInspectionsResults(InspectionResults);
+    {    
      setInspectionsResult.setResult(InspectionResults);
     }
     

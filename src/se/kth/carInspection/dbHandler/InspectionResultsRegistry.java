@@ -36,8 +36,7 @@ public class InspectionResultsRegistry {
           
         }
         return Results;
-    }
-  
+    }  
             
     private void addInspections() {
         RegNoDTO RegNo1 = new RegNoDTO("ABC299");

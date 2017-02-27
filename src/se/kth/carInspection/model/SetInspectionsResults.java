@@ -43,7 +43,7 @@ public class SetInspectionsResults {
                 }                
         }
         
-        nodifyObservers(passCount,failCount);
+        notifyObservers(passCount,failCount);
         
     }
      /**
@@ -57,7 +57,7 @@ public class SetInspectionsResults {
     }
      
      // Called  when inspection result is seted
-     public void nodifyObservers(int passCount,int failCount)
+     private void notifyObservers(int passCount,int failCount)
      {
         for(Observer observer : observers){
             observer.display(passCount,failCount);

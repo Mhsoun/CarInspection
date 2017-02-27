@@ -63,7 +63,7 @@ public class Inspector {
       }
     
     
-    public void Inspect(RegNoDTO regNo)
+    public void inspect(RegNoDTO regNo)
     {
         //Program retrieves appropriate inspections for vehicle.
         ArrayList<InspectionsDTO> InspectionResults = control.getInspections(regNo);
@@ -83,7 +83,7 @@ public class Inspector {
         }      
         
         //commit
-        control.Inspect(InspectionResults);
+        control.inspect(InspectionResults);
     
         //Program prints inspection results.
         control.printInspectionResults(InspectionResults) ;
@@ -140,7 +140,7 @@ public class Inspector {
      control.addObserver(inspectionStats);
      
     //Inspector performs the specified inspection.
-      Inspect(regNo);
+      inspect(regNo);
           
  }   
 }

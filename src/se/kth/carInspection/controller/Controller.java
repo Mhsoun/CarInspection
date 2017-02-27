@@ -86,7 +86,7 @@ public class Controller {
     }
     
     //Program stores inspection results.
-    public void Inspect(ArrayList<InspectionsDTO>  InspectionResults)
+    public void inspect(ArrayList<InspectionsDTO>  InspectionResults)
     {    
      setInspectionsResult.setResult(InspectionResults);
     }

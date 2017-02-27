@@ -15,6 +15,7 @@ import se.kth.carInspection.dbHandler.IncorrectRegNoException;
  * @author Shuai Wang
  */
 public class Inspector {
+    private Scanner scanPaymentMethod;
     private Controller control;
     private InspectionStats inspectionStats;
     
@@ -110,40 +111,62 @@ public class Inspector {
         getCost(regNo);
         
 
-     
-   
-    
-    Scanner scanPaymentMethod = new Scanner (System.in);
-    boolean userBehaving= false;
     boolean isCash = false;
     int cash = 0;
-    while (!userBehaving){ 
+     
+   boolean input= true;
+   while(input==true){ 
+   scanPaymentMethod = new Scanner (System.in);
+   
     System.out.println("choose weather u r going to pay by cash or card by typing (cash) or (card)");
     String userPaymentChoice =scanPaymentMethod.nextLine();
-    System.out.println("the amount of cash u have in your card or in ur hand (doesnät matter for the moment)");
+         switch (userPaymentChoice) {
+            case "cash":
+                isCash=true;
+                input=false;
+                
+                break;
+            case "card":
+                isCash=false;
+                input=false;
+              
+                break;
+            default:
+                System.out.println("you should enter cash or card!");
+                
+                break;
+        }
+   }
+   try{
+    while(cash>0){
+    System.out.println("the amount of cash u have in your card or in ur hand (doesnot matter for the moment)");
     cash = scanPaymentMethod.nextInt();
+    }
+        }
+    catch (Exception e){
+        System.out.println("please enter the word (cash) or the word (card)");
+        System.out.println("please as well make sure the amount of money is numbers");
+    }
+   
+        
     
-    if (userPaymentChoice.equals("cash")){
-        isCash=true;
-        userBehaving = true;
-    } else if (userPaymentChoice.equals("card")){
-        isCash=false;
-        userBehaving =true;
-    } else {
-        System.out.println("u should enter cash or card!");
-        userBehaving=false;
-    }
-    }
+    
+    
     System.out.println("your balance is:    " + control.Paying(isCash, cash,regNo));
-     
+    
+   
+   
+    
+   
+    
      //add Oberver
-     control.addObserver(inspectionStats);
+    control.addObserver(inspectionStats);
      
     //Inspector performs the specified inspection.
-      Inspect(regNo);
-          
- }   
+    Inspect(regNo);
+}         
 }
+
 
     
 
